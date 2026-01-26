@@ -1,11 +1,6 @@
-CS5205 – Advanced Artificial Intelligence Lab
 Assignment 1
 State-Space Scheduling Problem
 
-1. Problem Description
-
-This program solves the assignment scheduling problem using the
-STATE-SPACE PARADIGM from Classical Artificial Intelligence.
 
 Given:
 - N students
@@ -22,8 +17,15 @@ Given:
 
 The program prints ALL POSSIBLE VALID SCHEDULES.
 
+1. My assumptions
+
+- Sutdents are different entities 
+    • Like S1 doing A1 is different then S2 doing A2
+- Slacking is allowed
+    • Move to next day even if student have sufficient prompts.
 
 2. State-Space Formulation
+
 
 State = (CompletedAssignments, CurrentDay, PromptUsagePerStudent)
 
@@ -45,8 +47,8 @@ Search Strategy:
 - Exhaustively enumerates all valid schedules
 
 
-
 3. How to Run
+
 
 Requirements:
 - Python 3.x
@@ -55,12 +57,28 @@ Command:
 python3 main.py <input-file> <number-of-days>
 
 Example:
-python3 main.py input1.txt 3
+python3 assg01.py input01.txt 3
 
 
 5. Output
 
-- Total number of valid schedules
 - Each schedule shows:
-    Day → Student → Assignment
+    Day -> Student -> Assignment
+- Total number of valid schedules
 
+
+6. Complexity
+
+    • A = number of assignments
+    • N = students
+    • m = maximum allowed days
+    • Slack days = m − 1 (worst case)
+
+- Time Complexity:
+    - b <= (A × N + 1)
+    - d <= (A + m)
+    • Worst case Time Complexity = O(b^d)
+
+- Space Complexity:
+    - d <= (A + m)
+    • Worst case Time Complexity = O(d) = O(A+m)
